@@ -1,0 +1,204 @@
+\documentclass[10pt]{book}
+\usepackage[a5paper, inner=25.4mm,outer=20mm,top=15mm,bottom=15mm,heightrounded]{geometry}
+\frenchspacing
+\graphicspath{{images}}
+\usepackage{pifont}
+\usepackage{ebgaramond}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[greek,latin,british]{babel}
+\setcounter{secnumdepth}{0}
+\usepackage{sectsty}
+\usepackage{quoting}
+%Section Formatting
+\sectionfont{\Large \normalfont \centering}
+\subsectionfont{\normalsize \scshape \centering}
+\subsubsectionfont{\normalfont \normalsize \centering \itshape}
+%URL
+\usepackage{hyperref}
+%Page Headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyfoot[C]{}
+	\renewcommand{\headrulewidth}{0pt}
+}
+%Auto Columns
+\usepackage{reledmac}
+\usepackage[movecolumnspositiononrightpage]{reledpar}
+\newcommand{\excol}[2]{
+\begin{pairs}
+\begin{Leftside}
+\beginnumbering
+\pstart
+\selectlanguage{british}
+#1
+\pend
+\endnumbering
+\end{Leftside}
+\begin{Rightside}
+\beginnumbering
+\pstart
+\selectlanguage{latin}
+#2
+\pend
+\endnumbering
+\end{Rightside}
+\end{pairs}
+\Columns
+}
+\usepackage{indentfirst}
+\usepackage{paracol}
+\newcommand{\elcol}[2]{
+\sloppy
+\selectlanguage{british}%
+\begin{paracol}{2}
+#1
+\switchcolumn
+\selectlanguage{latin}
+#2
+\switchcolumn*
+\end{paracol}
+\selectlanguage{british}
+\fussy
+}
+\newcommand{\elcoldent}[2]{%
+\sloppy
+\selectlanguage{british}%
+\begin{paracol}{2}
+\noindent
+#1
+\switchcolumn
+\selectlanguage{latin}
+\noindent
+#2
+\switchcolumn*
+\end{paracol}
+\selectlanguage{british}
+\fussy
+}
+\setlength\columnseprule{0.4pt}
+%Balanced Double Columns
+\usepackage{multicol}
+
+\newcommand{\englat}[2]{%
+\selectlanguage{british}%
+\sloppy
+\begin{paracol}{2}
+\noindent%
+#1
+\switchcolumn
+\selectlanguage{latin}
+\noindent%
+#2
+\switchcolumn*
+\end{paracol}
+\selectlanguage{british}
+\fussy
+}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{epsfig}
+\newcommand{\sn}[1]{\marginpar{\raggedright{\footnotesize{#1}}}}
+\newcommand{\fn}[1]{\footnote{#1}}
+\usepackage[dvipsnames]{xcolor}
+\newcommand{\inrub}[1]{{\small{\textit{(#1)}}}}
+\newcommand{\newrub}[1]{\subsubsection{#1}}
+\newcommand{\rub}[1]{
+\par\noindent
+{
+\small
+\itshape
+\centering
+#1\\}
+\par\noindent
+}
+
+%Propers
+\newcommand{\antiphon}[2]{{\centering \textit{#1 Ant.} #2}}
+
+\newcommand{\head}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\subhead}[1]{
+	\par
+	\noindent
+	\textit{#1}}
+	%For the Office Sentences Page
+	%\usepackage{ragged2e}
+	\usepackage{marginnote}
+	\newcommand{\vr}[1]{{\footnotesize{ (#1)}}}
+	\newcommand{\seas}[1]{%
+	\par\noindent
+	{\color{BrickRed}\centerline{#1}}%
+	\par%
+	}
+	%Invitatory Page
+	\newcommand{\inv}[1]{\textit{#1}}
+\usepackage{lettrine}
+\newcommand{\lett}[2]{\lettrine{\color{BrickRed}#1}{#2}}
+%Psalm Formatting
+\newcommand{\psa}[1]{\subsubsection{#1}}
+\newcommand{\psasub}[1]{\begin{center}
+	{\textit{\small{#1}}}
+\end{center}}
+\begin{document}
+\begin{titlepage}
+		\begin{center}
+			\includegraphics[scale=.3]{Descent.eps}
+			\par
+			\vspace{1cm}
+			\Huge{\scshape 2025}
+			\par
+			\Huge{\scshape Book}
+			\par
+			\Large{\scshape of}
+			\par
+			\Huge{\scshape Common Prayer}\\
+			\par
+			\vfill
+			\selectlanguage{greek}
+			\small{\textit{Κεφάλαιον δὲ ἐπὶ τοῖς λεγομένοις, τοιοῦτον ἔχομεν ἀρχιερέα ὃς ἐκάθισεν ἐν δεξιᾷ τοῦ θρόνου τῆς μεγαλωσύνης ἐν τοῖς οὐρανοῖς, τῶν ἁγίων λειτουργὸς καὶ τῆς σκηνῆς τῆς ἀληθινῆς, ἣν ἔπηξεν ὁ κύριος, οὐκ ἄνθρωπος.}}
+		\end{center}
+	\end{titlepage}
+\newpage
+\section{Approbations \& Recommendations}
+\fancyhead[RE,LO]{Approbations \& Recommendations}
+``This is where an ecclesiastical approval would go...if we had one!'' ---His Grace of Worcester, MA
+\newpage
+\include{pages/DailyOffice.tex}
+\include{pages/ForeOffice.tex}
+\include{pages/Mattins.tex}
+\include{pages/Ath.tex}
+%\include{pages/Prime.tex}
+%\include{pages/Terce.tex}
+%\include{pages/Sext.tex}
+%\include{pages/None.tex}
+\include{pages/pages/Evensong.tex}
+\include{pages/pages/Benediction.tex}
+\include{pages/Compline.tex}
+\include{pages/Mary.tex}
+\include{pages/Dead.tex}
+\include{pages/Prayers.tex}
+\include{pages/DivineLiturgy.tex}
+\include{pages/ForeMass.tex}
+\include{pages/Asperges.tex}
+\include{pages/Tikhon.tex}
+\include{pages/Decalogue.tex}
+\include{pages/Gregory.tex}
+\include{pages/Litany.tex}
+%\include{pages/PropSeas.tex}
+%\include{pages/PropTime.tex}
+\include{pages/PsalterCover.tex}
+\include{pages/New_Psalter.tex}
+%\include{pages/Psalter.tex}
+\include{pages/Pastoral.tex}
+%\include{pages/Baptism.tex}
+%\include{pages/Confirmation.tex}
+\include{pages/Confession.tex}
+%\include{pages/Theological.tex}
+%\include{pages/Article.tex}
+%\include{pages/Devotions.tex}
+\include{pages/Back.tex}
+\end{document}
